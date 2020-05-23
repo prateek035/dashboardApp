@@ -48,7 +48,7 @@ app.post("/upload", upload.single("file"), function (req, res) {
   });
 
   process.on("close", (code) => {
-    console.log("Script has run successfully!");
+    console.log("Script has run successfully!", dataToSend);
     res.status(200).send(dataToSend);
   });
 });
