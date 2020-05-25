@@ -40,6 +40,7 @@ app.post("/upload", upload.single("file"), function (req, res) {
   var process = spawn("python", [
     "./DataInsertScript.py",
     req.file.destination + "/" + req.file.filename,
+    req.body.timer,
   ]);
 
   process.stdout.on("data", (data) => {

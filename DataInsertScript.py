@@ -28,6 +28,9 @@ print("No. of Rows :: " , TotalRows)
 
 tokens = []
 
+timer = int(sys.argv[2])
+
+
 url = "https://secure-cove-75771.herokuapp.com/api/item/"
 
 headers = {
@@ -45,7 +48,7 @@ def request_maker(post_data):
 	return stuff_got
 
 
-for rowIndex in range(TotalRows+1):
+for rowIndex in range(TotalRows):
 	rowData = sheet.row_values(rowIndex) 
 	user = rowData[0]
 	if (user == ""):
@@ -61,8 +64,8 @@ for rowIndex in range(TotalRows+1):
 
 		tokens = []
 
-		# Timer will stop for 60 seconds
-		time.sleep(60)
+		# Timer will stop for timer seconds
+		time.sleep(timer*60)
 
 		continue
 	
